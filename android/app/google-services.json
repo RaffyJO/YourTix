@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1005722143446",
+    "project_id": "flix-id-f9ddf",
+    "storage_bucket": "flix-id-f9ddf.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1005722143446:android:628ee4747a4abc53501777",
+        "android_client_info": {
+          "package_name": "com.raffyjo.flix_id"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBHvP5NlK0LTQl839IwNHYPJOMTGoKQZ_I"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

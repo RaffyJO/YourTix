@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>API_KEY</key>
+	<string>AIzaSyB7XXRqvhIdPQPf7rVO5gkm8LyB7G3pl4c</string>
+	<key>GCM_SENDER_ID</key>
+	<string>1005722143446</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.example.flixId</string>
+	<key>PROJECT_ID</key>
+	<string>flix-id-f9ddf</string>
+	<key>STORAGE_BUCKET</key>
+	<string>flix-id-f9ddf.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:1005722143446:ios:7f48e7a8528bdd9d501777</string>
+</dict>
+</plist>
