@@ -8,7 +8,8 @@ part of 'transaction.dart';
 
 _$TransactionImpl _$$TransactionImplFromJson(Map<String, dynamic> json) =>
     _$TransactionImpl(
-      uid: json['uid'] as String?,
+      id: json['id'] as String?,
+      uid: json['uid'] as String,
       transactionTime: json['transactionTime'] as int?,
       transactionImage: json['transactionImage'] as String?,
       title: json['title'] as String,
@@ -25,6 +26,7 @@ _$TransactionImpl _$$TransactionImplFromJson(Map<String, dynamic> json) =>
 
 Map<String, dynamic> _$$TransactionImplToJson(_$TransactionImpl instance) =>
     <String, dynamic>{
+      'id': instance.id,
       'uid': instance.uid,
       'transactionTime': instance.transactionTime,
       'transactionImage': instance.transactionImage,

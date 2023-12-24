@@ -20,7 +20,8 @@ Transaction _$TransactionFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Transaction {
-  String? get uid => throw _privateConstructorUsedError;
+  String? get id => throw _privateConstructorUsedError;
+  String get uid => throw _privateConstructorUsedError;
   int? get transactionTime => throw _privateConstructorUsedError;
   String? get transactionImage => throw _privateConstructorUsedError;
   String get title => throw _privateConstructorUsedError;
@@ -45,7 +46,8 @@ abstract class $TransactionCopyWith<$Res> {
       _$TransactionCopyWithImpl<$Res, Transaction>;
   @useResult
   $Res call(
-      {String? uid,
+      {String? id,
+      String uid,
       int? transactionTime,
       String? transactionImage,
       String title,
@@ -71,7 +73,8 @@ class _$TransactionCopyWithImpl<$Res, $Val extends Transaction>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? uid = freezed,
+    Object? id = freezed,
+    Object? uid = null,
     Object? transactionTime = freezed,
     Object? transactionImage = freezed,
     Object? title = null,
@@ -84,10 +87,14 @@ class _$TransactionCopyWithImpl<$Res, $Val extends Transaction>
     Object? total = null,
   }) {
     return _then(_value.copyWith(
-      uid: freezed == uid
+      id: freezed == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String?,
+      uid: null == uid
           ? _value.uid
           : uid // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
       transactionTime: freezed == transactionTime
           ? _value.transactionTime
           : transactionTime // ignore: cast_nullable_to_non_nullable
@@ -141,7 +148,8 @@ abstract class _$$TransactionImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {String? uid,
+      {String? id,
+      String uid,
       int? transactionTime,
       String? transactionImage,
       String title,
@@ -165,7 +173,8 @@ class __$$TransactionImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? uid = freezed,
+    Object? id = freezed,
+    Object? uid = null,
     Object? transactionTime = freezed,
     Object? transactionImage = freezed,
     Object? title = null,
@@ -178,10 +187,14 @@ class __$$TransactionImplCopyWithImpl<$Res>
     Object? total = null,
   }) {
     return _then(_$TransactionImpl(
-      uid: freezed == uid
+      id: freezed == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String?,
+      uid: null == uid
           ? _value.uid
           : uid // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
       transactionTime: freezed == transactionTime
           ? _value.transactionTime
           : transactionTime // ignore: cast_nullable_to_non_nullable
@@ -230,7 +243,8 @@ class __$$TransactionImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$TransactionImpl implements _Transaction {
   const _$TransactionImpl(
-      {this.uid,
+      {this.id,
+      required this.uid,
       this.transactionTime,
       this.transactionImage,
       required this.title,
@@ -247,7 +261,9 @@ class _$TransactionImpl implements _Transaction {
       _$$TransactionImplFromJson(json);
 
   @override
-  final String? uid;
+  final String? id;
+  @override
+  final String uid;
   @override
   final int? transactionTime;
   @override
@@ -278,7 +294,7 @@ class _$TransactionImpl implements _Transaction {
 
   @override
   String toString() {
-    return 'Transaction(uid: $uid, transactionTime: $transactionTime, transactionImage: $transactionImage, title: $title, seats: $seats, theaterName: $theaterName, watchingTime: $watchingTime, ticketAmount: $ticketAmount, ticketPrice: $ticketPrice, adminFee: $adminFee, total: $total)';
+    return 'Transaction(id: $id, uid: $uid, transactionTime: $transactionTime, transactionImage: $transactionImage, title: $title, seats: $seats, theaterName: $theaterName, watchingTime: $watchingTime, ticketAmount: $ticketAmount, ticketPrice: $ticketPrice, adminFee: $adminFee, total: $total)';
   }
 
   @override
@@ -286,6 +302,7 @@ class _$TransactionImpl implements _Transaction {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$TransactionImpl &&
+            (identical(other.id, id) || other.id == id) &&
             (identical(other.uid, uid) || other.uid == uid) &&
             (identical(other.transactionTime, transactionTime) ||
                 other.transactionTime == transactionTime) &&
@@ -310,6 +327,7 @@ class _$TransactionImpl implements _Transaction {
   @override
   int get hashCode => Object.hash(
       runtimeType,
+      id,
       uid,
       transactionTime,
       transactionImage,
@@ -338,7 +356,8 @@ class _$TransactionImpl implements _Transaction {
 
 abstract class _Transaction implements Transaction {
   const factory _Transaction(
-      {final String? uid,
+      {final String? id,
+      required final String uid,
       final int? transactionTime,
       final String? transactionImage,
       required final String title,
@@ -354,7 +373,9 @@ abstract class _Transaction implements Transaction {
       _$TransactionImpl.fromJson;
 
   @override
-  String? get uid;
+  String? get id;
+  @override
+  String get uid;
   @override
   int? get transactionTime;
   @override

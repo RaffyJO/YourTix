@@ -6,7 +6,8 @@ part 'transaction.g.dart';
 @freezed
 class Transaction with _$Transaction {
   const factory Transaction({
-    String? uid,
+    String? id,
+    required String uid,
     int? transactionTime,
     String? transactionImage,
     required String title,

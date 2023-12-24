@@ -18,5 +18,5 @@ abstract interface class UserRepository {
   Future<Result<User>> updateUserBalance(
       {required String uid, required int balance});
   Future<Result<User>> uploadProfilePicture(
-      {required String uid, required File imageFile});
+      {required User user, required File imageFile});
 }
