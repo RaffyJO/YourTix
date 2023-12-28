@@ -1,0 +1,84 @@
+import 'package:dio/dio.dart';
+import 'package:flix_id/data/repositories/movie_repository.dart';
+import 'package:flix_id/domain/entities/actor.dart';
+import 'package:flix_id/domain/entities/movie.dart';
+import 'package:flix_id/domain/entities/movie_detail.dart';
+import 'package:flix_id/domain/entities/result.dart';
+
+class TmdbMovieRepository implements MovieRepository {
+  final Dio? _dio;
+  final String _accessToken =
+      'eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIwYzM0M2UxMWYzYzEyYmVjZjcwMDEyYmFhM2JjNTE5YyIsInN1YiI6IjY1NDk5N2Y0ZmQ0ZjgwMDBlNDgwZDI1NCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.QVdwNplJtUco--K9q6K42T_9Cv3-rwV2aJCf7KtQGMQ';
+
+  late final Options _options = Options(headers: {
+    'Authorization': 'Bearer $_accessToken',
+    'accept': 'application/json'
+  });
+
+  TmdbMovieRepository({required Dio? dio}) : _dio = dio ?? Dio();
+
+  @override
+  Future<Result<List<Actor>>> getActors({required int id}) async {
+    try {
+      final response = await _dio!.get(
+          'https://api.themoviedb.org/3/movie/$id/credits?language=en-US',
+          options: _options);
+
+      final results = List<Map<String, dynamic>>.from(response.data['cast']);
+
+      return Result.success(results.map((e) => Actor.fromJSON(e)).toList());
+    } on DioException catch (e) {
+      return Result.failed('${e.message}');
+    }
+  }
+
+  @override
+  Future<Result<MovieDetail>> getDetail({required int id}) async {
+    try {
+      final response = await _dio!.get(
+          'https://api.themoviedb.org/3/list/$id?language=en-US',
+          options: _options);
+
+      return Result.success(MovieDetail.fromJSON(response.data));
+    } on DioException catch (e) {
+      return Result.failed('${e.message}');
+    }
+  }
+
+  @override
+  Future<Result<List<Movie>>> getNowPlaying({int page = 1}) {
+    return _getMovies(_MovieCategory.nowPlaying.toString(), page: page);
+  }
+
+  @override
+  Future<Result<List<Movie>>> getUpcoming({int page = 1}) {
+    return _getMovies(_MovieCategory.upcomming.toString(), page: page);
+  }
+
+  Future<Result<List<Movie>>> _getMovies(String category,
+      {int page = 1}) async {
+    try {
+      final response = await _dio!.get(
+          'https://api.themoviedb.org/3/movie/$category?language=en-US&page=$page',
+          options: _options);
+
+      final results = List<Map<String, dynamic>>.from(response.data['results']);
+
+      return Result.success(results.map((e) => Movie.fromJSON(e)).toList());
+    } on DioException catch (e) {
+      return Result.failed('${e.message}');
+    }
+  }
+}
+
+enum _MovieCategory {
+  nowPlaying('now_playing'),
+  upcomming('upcoming');
+
+  final String _instring;
+
+  const _MovieCategory(String inString) : _instring = inString;
+
+  @override
+  String toString() => _instring;
+}
