@@ -8,7 +8,7 @@ sealed class Result<T> {
   bool get isFailed => this is Failed<T>;
 
   T? get resultValue => isSucces ? (this as Success<T>).value : null;
-  String? get errorMassage => isFailed ? (this as Failed<T>).massage : null;
+  String? get errorMassage => isFailed ? (this as Failed<T>).message : null;
 }
 
 class Success<T> extends Result<T> {
@@ -18,7 +18,7 @@ class Success<T> extends Result<T> {
 }
 
 class Failed<T> extends Result<T> {
-  final String massage;
+  final String message;
 
-  const Failed(this.massage);
+  const Failed(this.message);
 }

@@ -1,4 +1,4 @@
-import 'package:flix_id/domain/usescases/login/login.dart';
+import 'package:flix_id/domain/usecases/login/login.dart';
 import 'package:flix_id/presentation/pages/main_page/main_page.dart';
 import 'package:flix_id/presentation/providers/usecases/login_provider.dart';
 import 'package:flutter/material.dart';
