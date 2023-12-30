@@ -7,8 +7,7 @@ import 'package:flix_id/domain/entities/transaction.dart';
 class FirebaseTransactionRepositry implements TransactionRepository {
   final firestore.FirebaseFirestore _firebaseFirestore;
 
-  FirebaseTransactionRepositry(
-      {required firestore.FirebaseFirestore firebaseFirestore})
+  FirebaseTransactionRepositry({firestore.FirebaseFirestore? firebaseFirestore})
       : _firebaseFirestore =
             firebaseFirestore ?? firestore.FirebaseFirestore.instance;
 
