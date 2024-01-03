@@ -1,6 +1,6 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flix_id/firebase_options.dart';
-import 'package:flix_id/presentation/pages/login_page/login_page.dart';
+import 'package:flix_id/presentation/providers/router/router_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -14,12 +14,18 @@ void main() async {
   runApp(const ProviderScope(child: MyApp()));
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends ConsumerWidget {
   const MyApp({super.key});
 
   // This widget is the root of your application.
   @override
-  Widget build(BuildContext context) {
-    return const MaterialApp(home: LoginPage());
+  Widget build(BuildContext context, WidgetRef ref) {
+    return MaterialApp.router(
+      debugShowCheckedModeBanner: false,
+      routeInformationParser: ref.watch(routerProvider).routeInformationParser,
+      routeInformationProvider:
+          ref.watch(routerProvider).routeInformationProvider,
+      routerDelegate: ref.watch(routerProvider).routerDelegate,
+    );
   }
 }

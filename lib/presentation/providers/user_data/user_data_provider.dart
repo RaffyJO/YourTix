@@ -45,7 +45,7 @@ class UserData extends _$UserData {
     state = const AsyncLoading();
 
     Login login = ref.read(loginProvider);
-    var result = login(LoginParams(email: email, password: password));
+    var result = await login(LoginParams(email: email, password: password));
 
     switch (result) {
       case Success(value: final user):
