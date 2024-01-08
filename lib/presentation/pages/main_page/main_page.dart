@@ -1,5 +1,7 @@
 import 'package:flix_id/presentation/extensions/build_context_extension.dart';
 import 'package:flix_id/presentation/misc/constants.dart';
+import 'package:flix_id/presentation/pages/movie_page/movie_page.dart';
+import 'package:flix_id/presentation/pages/profile_page/profile_page.dart';
 import 'package:flix_id/presentation/providers/router/router_provider.dart';
 import 'package:flix_id/presentation/providers/user_data/user_data_provider.dart';
 import 'package:flix_id/presentation/widgets/bottom_nav_bar.dart';
@@ -40,26 +42,12 @@ class _MainPageState extends ConsumerState<MainPage> {
             onPageChanged: (value) => setState(() {
               selectedPage = value;
             }),
-            children: [
+            children: const [
+              MoviePage(),
               Center(
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    const Text('Home'),
-                    ElevatedButton(
-                        onPressed: () {
-                          ref.read(userDataProvider.notifier).logout();
-                        },
-                        child: const Text('Logout'))
-                  ],
-                ),
-              ),
-              const Center(
                 child: Text('Tickets'),
               ),
-              const Center(
-                child: Text('Profile'),
-              )
+              ProfilePage()
             ],
           ),
           BottomNavBar(
