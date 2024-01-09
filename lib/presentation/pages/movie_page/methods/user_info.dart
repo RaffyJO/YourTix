@@ -8,24 +8,8 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 Widget userInfo(WidgetRef ref) => Padding(
       padding: const EdgeInsets.fromLTRB(24, 24, 24, 0),
       child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Container(
-            width: 64,
-            height: 64,
-            decoration: BoxDecoration(
-                border: Border.all(color: grey, width: 1),
-                shape: BoxShape.circle,
-                image: DecorationImage(
-                    image: ref.watch(userDataProvider).valueOrNull?.photoUrl !=
-                            null
-                        ? NetworkImage(ref
-                            .watch(userDataProvider)
-                            .valueOrNull!
-                            .photoUrl!) as ImageProvider
-                        : const AssetImage('assets/user-profile.png'),
-                    fit: BoxFit.cover)),
-          ),
-          horizontalSpace(16),
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -66,7 +50,23 @@ Widget userInfo(WidgetRef ref) => Padding(
                 ),
               )
             ],
-          )
+          ),
+          Container(
+            width: 64,
+            height: 64,
+            decoration: BoxDecoration(
+                border: Border.all(color: grey, width: 1),
+                shape: BoxShape.circle,
+                image: DecorationImage(
+                    image: ref.watch(userDataProvider).valueOrNull?.photoUrl !=
+                            null
+                        ? NetworkImage(ref
+                            .watch(userDataProvider)
+                            .valueOrNull!
+                            .photoUrl!) as ImageProvider
+                        : const AssetImage('assets/user-profile.png'),
+                    fit: BoxFit.cover)),
+          ),
         ],
       ),
     );

@@ -6,21 +6,21 @@ class NetworkImageCard extends StatelessWidget {
   final String? imageUrl;
   final BoxFit? fit;
   final double borderRadius;
-  final VoidCallback? ontap;
+  final VoidCallback? onTap;
 
   const NetworkImageCard(
       {super.key,
-      this.height = 150,
-      this.width = 228,
+      this.height = 258,
+      this.width = 172,
       this.imageUrl,
       this.fit,
       this.borderRadius = 10,
-      this.ontap});
+      this.onTap});
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: ontap,
+      onTap: onTap,
       child: Container(
         width: width,
         height: height,
