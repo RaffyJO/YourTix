@@ -5,7 +5,7 @@ Widget searchBar(BuildContext context) => Container(
       height: 50,
       padding: const EdgeInsets.symmetric(horizontal: 15),
       decoration: BoxDecoration(
-          color: Colors.grey[100],
+          color: Colors.white30,
           borderRadius: BorderRadius.circular(25),
           border: Border.all()),
       child: const TextField(

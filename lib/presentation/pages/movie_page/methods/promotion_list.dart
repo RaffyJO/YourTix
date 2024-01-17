@@ -12,12 +12,12 @@ List<Widget> promotionList(List<String> promotionImageFileName) => [
                   child: Image.network(
                     promotionImageFileName[itemIndex],
                     width: double.infinity,
-                    height: 120.0,
+                    height: 160.0,
                     fit: BoxFit.cover,
                   ),
                 )),
         options: CarouselOptions(
-            height: 170,
+            height: 160,
             autoPlay: true,
             enlargeCenterPage: true,
             viewportFraction: 1,
