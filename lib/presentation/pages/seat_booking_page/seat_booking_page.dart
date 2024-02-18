@@ -76,11 +76,55 @@ class _SeatBookingPageState extends ConsumerState<SeatBookingPage> {
               verticalSpace(20),
               legend(),
               verticalSpace(40),
-              Text(
-                '${selectedSeats.length} seats selected',
-                style:
-                    const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
-              )
+              SizedBox(
+                width: MediaQuery.of(context).size.width - 48,
+                height: 50,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: [
+                    SizedBox(
+                      width: 110,
+                      child: Column(
+                        children: [
+                          const Text(
+                            'Total Price',
+                            style: TextStyle(
+                                fontSize: 14, fontWeight: FontWeight.bold),
+                          ),
+                          verticalSpace(2),
+                          Text(
+                            'Rp${selectedSeats.length * 35000}',
+                            style: const TextStyle(
+                                fontSize: 16, fontWeight: FontWeight.bold),
+                          ),
+                        ],
+                      ),
+                    ),
+                    const VerticalDivider(
+                      color: grey,
+                      thickness: 0.5,
+                    ),
+                    SizedBox(
+                      width: 110,
+                      child: Column(
+                        children: [
+                          const Text(
+                            'Seats Selected',
+                            style: TextStyle(
+                                fontSize: 14, fontWeight: FontWeight.bold),
+                          ),
+                          verticalSpace(2),
+                          Text(
+                            selectedSeats.length.toString(),
+                            style: const TextStyle(
+                                fontSize: 16, fontWeight: FontWeight.bold),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+              ),
             ],
           ),
         ),
@@ -88,7 +132,18 @@ class _SeatBookingPageState extends ConsumerState<SeatBookingPage> {
           padding: const EdgeInsets.symmetric(vertical: 40, horizontal: 24),
           child: (selectedSeats.isNotEmpty)
               ? ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    var updateTransaction = transaction.copyWith(
+                      seats: (selectedSeats..sort()).map((e) => '$e').toList(),
+                      ticketAmount: selectedSeats.length,
+                      ticketPrice: 35000,
+                    );
+
+                    ref.read(routerProvider).pushNamed(
+                      'booking-confirmation',
+                      extra: (movieDetail, updateTransaction),
+                    );
+                  },
                   style: ElevatedButton.styleFrom(
                       foregroundColor: backgroundColor,
                       backgroundColor: blue,
@@ -117,14 +172,16 @@ class _SeatBookingPageState extends ConsumerState<SeatBookingPage> {
   }
 
   void onSeatTap(seatNumber) {
-    if (!selectedSeats.contains(seatNumber)) {
-      setState(() {
-        selectedSeats.add(seatNumber);
-      });
-    } else {
-      setState(() {
-        selectedSeats.remove(seatNumber);
-      });
+    if (!reservedSeats.contains(seatNumber)) {
+      if (!selectedSeats.contains(seatNumber)) {
+        setState(() {
+          selectedSeats.add(seatNumber);
+        });
+      } else {
+        setState(() {
+          selectedSeats.remove(seatNumber);
+        });
+      }
     }
   }
 

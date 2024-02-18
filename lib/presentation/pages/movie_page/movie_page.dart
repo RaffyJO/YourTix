@@ -16,6 +16,12 @@ class MoviePage extends ConsumerWidget {
     'https://thefilmstage.com/wp-content/uploads/2010/06/inception-20100608065705781.jpg'
   ];
 
+  final List<String> promotionsImageFileAssets = const [
+    'assets/promo1.jpg',
+    'assets/promo2.jpg',
+    'assets/promo3.jpg',
+  ];
+
   const MoviePage({super.key});
 
   @override
@@ -35,7 +41,7 @@ class MoviePage extends ConsumerWidget {
                   ref.read(routerProvider).pushNamed('detail', extra: movie);
                 }),
             verticalSpace(0),
-            ...promotionList(promotionsImageFileNames),
+            ...promotionList(promotionsImageFileAssets),
             verticalSpace(24),
             ...upcomingMovieList(
                 title: 'Coming Soon', movies: ref.watch(upcomingProvider)),

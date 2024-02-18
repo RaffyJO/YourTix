@@ -9,7 +9,7 @@ List<Widget> promotionList(List<String> promotionImageFileName) => [
                 padding: const EdgeInsets.symmetric(horizontal: 24),
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(5),
-                  child: Image.network(
+                  child: Image.asset(
                     promotionImageFileName[itemIndex],
                     width: double.infinity,
                     height: 160.0,
@@ -17,12 +17,13 @@ List<Widget> promotionList(List<String> promotionImageFileName) => [
                   ),
                 )),
         options: CarouselOptions(
-            height: 160,
-            autoPlay: true,
-            enlargeCenterPage: true,
-            viewportFraction: 1,
-            aspectRatio: 2.0,
-            initialPage: 2,
-            autoPlayInterval: const Duration(seconds: 3)),
+          height: 160,
+          autoPlay: true,
+          enlargeCenterPage: true,
+          viewportFraction: 1,
+          aspectRatio: 2.0,
+          initialPage: 2,
+          autoPlayInterval: const Duration(seconds: 4),
+        ),
       )
     ];
