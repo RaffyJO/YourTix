@@ -36,15 +36,19 @@ List<Widget> movieShortInfo(
                 ),
               ),
               horizontalSpace(20),
-              Text(
-                '${asyncMovieDetail.when(
-                  data: (movieDetail) =>
-                      movieDetail != null ? movieDetail.runTime : '-',
-                  error: (error, stackTrace) => '-',
-                  loading: () => '-',
-                )} minutes',
-                style:
-                    const TextStyle(fontWeight: FontWeight.w600, fontSize: 15),
+              SizedBox(
+                width:
+                    MediaQuery.of(context).size.width - 48 - 152 - 15 - 20 - 67,
+                child: Text(
+                  '${asyncMovieDetail.when(
+                    data: (movieDetail) =>
+                        movieDetail != null ? movieDetail.runTime : '-',
+                    error: (error, stackTrace) => '-',
+                    loading: () => '-',
+                  )} minutes',
+                  style: const TextStyle(
+                      fontWeight: FontWeight.w600, fontSize: 15),
+                ),
               ),
             ],
           ),

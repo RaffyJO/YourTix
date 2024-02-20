@@ -57,21 +57,23 @@ class _SeatBookingPageState extends ConsumerState<SeatBookingPage> {
                 onTap: () => ref.read(routerProvider).pop(),
               ),
               movieScreen(context),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  seatSection(
-                    seatNumbers: List.generate(40, (index) => index + 1),
-                    onTap: onSeatTap,
-                    seatStatusChecker: seatStatusChecker,
-                  ),
-                  horizontalSpace(40),
-                  seatSection(
-                    seatNumbers: List.generate(40, (index) => index + 41),
-                    onTap: onSeatTap,
-                    seatStatusChecker: seatStatusChecker,
-                  ),
-                ],
+              SingleChildScrollView(
+                scrollDirection: Axis.horizontal,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    seatSection(
+                      seatNumbers: List.generate(40, (index) => index + 1),
+                      onTap: onSeatTap,
+                      seatStatusChecker: seatStatusChecker,
+                    ),
+                    seatSection(
+                      seatNumbers: List.generate(40, (index) => index + 41),
+                      onTap: onSeatTap,
+                      seatStatusChecker: seatStatusChecker,
+                    ),
+                  ],
+                ),
               ),
               verticalSpace(20),
               legend(),
