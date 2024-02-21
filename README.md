@@ -1,16 +1,16 @@
-# flix_id
+# YourTix
 
-A new Flutter project.
+YourTix is an innovative application designed to streamline the process of booking cinema tickets quickly and conveniently. With a user-friendly interface and advanced features, YourTix delivers a delightful and efficient ticket booking experience.
 
-## Getting Started
+![Thumbnail (1)](https://github.com/RaffyJO/YourTix/assets/116251880/f5b21f89-b873-407d-82ee-a3dcd0341798)
 
-This project is a starting point for a Flutter application.
+## Architecture
 
-A few resources to get you started if this is your first Flutter project:
+- Separation of Concerns
+- Clean Architecture
+- State Management Riverpod
+- Firebase
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+## Install .apk
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+- [apk](https://drive.google.com/drive/folders/1sbKAkg6nZlsNztV0piakzPV1LRku2AZo?usp=sharing)
