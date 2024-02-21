@@ -43,8 +43,8 @@ class DetailPage extends ConsumerWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         NetworkImageCard(
-                          height: 228,
-                          width: 152,
+                          height: 213,
+                          width: 142,
                           imageUrl: asyncMovieDetail.valueOrNull != null
                               ? 'https://image.tmdb.org/t/p/w500${movie.posterPath}'
                               : null,

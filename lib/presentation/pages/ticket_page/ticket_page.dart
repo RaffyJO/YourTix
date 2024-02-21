@@ -1,3 +1,4 @@
+import 'package:flix_id/presentation/misc/constants.dart';
 import 'package:flix_id/presentation/providers/transaction_data/transaction_data_provider.dart';
 import 'package:flix_id/presentation/widgets/ticket.dart';
 import 'package:flutter/material.dart';
@@ -15,8 +16,10 @@ class TicketPage extends ConsumerWidget {
           style: TextStyle(
             fontSize: 18,
             fontWeight: FontWeight.bold,
+            color: Colors.white,
           ),
         ),
+        backgroundColor: blue,
         centerTitle: true,
         elevation: 2,
       ),

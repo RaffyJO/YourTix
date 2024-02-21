@@ -27,6 +27,7 @@ List<Widget> movieShortInfo(
           ),
           verticalSpace(5),
           Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               const SizedBox(
                 width: 67,

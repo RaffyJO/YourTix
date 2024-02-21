@@ -191,16 +191,17 @@ class BookingConfirmationPage extends ConsumerWidget {
                 ),
                 verticalSpace(15),
                 Padding(
-                    padding: const EdgeInsets.fromLTRB(24, 0, 24, 0),
-                    child: ClipRRect(
-                      borderRadius: BorderRadius.circular(8),
-                      child: Image.asset(
-                        'assets/banner-popcorn.jpg',
-                        width: double.infinity,
-                        height: 160.0,
-                        fit: BoxFit.cover,
-                      ),
-                    )),
+                  padding: const EdgeInsets.fromLTRB(24, 0, 24, 0),
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(8),
+                    child: Image.asset(
+                      'assets/banner-popcorn.jpg',
+                      width: double.infinity,
+                      height: 160.0,
+                      fit: BoxFit.cover,
+                    ),
+                  ),
+                ),
                 verticalSpace(15),
                 Padding(
                   padding: const EdgeInsets.fromLTRB(24, 0, 24, 0),
